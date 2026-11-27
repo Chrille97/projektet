@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="sv"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Projektet</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
@@ -41,7 +41,7 @@ button{cursor:pointer}
 .projname{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 200px}
 .projname input{background:transparent;border:1px solid transparent;padding:4px 6px;font-weight:600;font-size:15px;min-width:0;width:100%;max-width:300px;border-radius:2px}
 .projname input:hover:not(:disabled),.projname input:focus{border-color:var(--line);background:var(--panel)}
-.badge{font:500 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:2px 6px;color:var(--ink-2);white-space:nowrap}
+.badge{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:2px 6px;color:var(--ink-2);white-space:nowrap}
 .tabs{display:flex;gap:2px}
 .tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:6px 12px;color:var(--ink-2);font-weight:500}
 .tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
@@ -82,14 +82,14 @@ main{flex:1;min-height:0;display:flex;flex-direction:column}
 .nrole{fill:var(--k)}
 .nname{font:600 13px var(--f-body);fill:var(--ink)}
 .nco{font:400 11.5px var(--f-body);fill:var(--ink-2)}
-.expbadge{font:500 10.5px var(--f-mono);fill:var(--ink-2)}
+.expbadge{font:500 11px var(--f-mono);fill:var(--ink-2)}
 .handle{fill:var(--panel);stroke:var(--accent);stroke-width:2;cursor:crosshair;touch-action:none}
 .subnode{cursor:pointer;touch-action:none}
 .sbox{fill:var(--panel);stroke:var(--line);stroke-width:1.2}
 .subnode.sel .sbox{stroke:var(--accent);stroke-width:2.8}
 .srole{fill:var(--k)}
 .sname{font:500 12px var(--f-body);fill:var(--ink)}
-.ssub{font:400 10px var(--f-mono);fill:var(--ink-2)}
+.ssub{font:400 11px var(--f-mono);fill:var(--ink-2)}
 .ghost{cursor:pointer}
 .gbox{fill:none;stroke:var(--ink-2);stroke-dasharray:4 3}
 .ghost:hover .gbox{stroke:var(--accent)}
@@ -125,7 +125,7 @@ ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
 .ico.file{width:11px;height:14px;border:1.5px solid var(--ink-2);margin:0 2px}
 .nm{border:0;background:none;text-align:left;padding:1px 2px;min-width:0;overflow-wrap:anywhere;flex:1}
 .nm:hover{text-decoration:underline}
-.sharebadge{font:500 10.5px var(--f-mono);color:var(--accent);border:1px solid var(--accent);padding:0 5px;white-space:nowrap}
+.sharebadge{font:500 11px var(--f-mono);color:var(--accent);border:1px solid var(--accent);padding:0 5px;white-space:nowrap}
 .acts{display:flex;gap:2px;flex:none}
 .acts button{border:0;background:none;color:var(--ink-2);font-size:12px;padding:2px 5px}
 .acts button:hover{color:var(--ink);background:var(--faint)}
@@ -188,7 +188,7 @@ ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
 .pt{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;margin-bottom:10px}
 .pt-stats{display:flex;flex-wrap:wrap;gap:10px 28px;flex:1 1 400px}
 .pt-stats div{display:flex;flex-direction:column;gap:1px}
-.pt-stats .k{font:500 10.5px var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2)}
+.pt-stats .k{font:500 11px var(--f-mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2)}
 .pt-stats b{font:700 15px var(--f-display);font-variant-numeric:tabular-nums}
 .pt-stats b.late{color:var(--red)}
 .pt-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -200,7 +200,7 @@ ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
 .lrow.rail{font:700 13px var(--f-display);color:var(--red)}
 .g-left .lrow.rail2{flex-direction:column;align-items:stretch;padding:0;gap:0}
 .rl{height:35px;display:flex;align-items:center;gap:8px;padding:0 10px;font:700 12px var(--f-display);color:var(--red);flex:none}
-.rl small{font:400 10.5px var(--f-mono);color:var(--ink-2)}
+.rl small{font:400 11px var(--f-mono);color:var(--ink-2)}
 .lrow.lane{background:var(--faint);font:600 12px var(--f-body)}
 .lrow.lane small{color:var(--ink-2);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lrow.lane .kdot{width:8px;height:14px;background:var(--k);flex:none}
@@ -214,13 +214,13 @@ ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
 .g-scroll{overflow-x:auto;min-width:0}
 #gantt{display:block}
 .g-wk{font:500 11px var(--f-mono);fill:var(--ink)}
-.g-dt{font:400 10px var(--f-mono);fill:var(--ink-2)}
+.g-dt{font:400 11px var(--f-mono);fill:var(--ink-2)}
 .g-mo{font:700 11px var(--f-display);fill:var(--ink-2);letter-spacing:.04em}
 .g-grid{stroke:var(--faint);stroke-width:1}
 .g-lane{fill:var(--faint)}
 .g-rowline{stroke:var(--faint);stroke-width:1}
 .g-today{stroke:var(--ink-2);stroke-width:1.3;stroke-dasharray:4 4}
-.g-todaytx{font:600 10.5px var(--f-mono);fill:var(--ink)}
+.g-todaytx{font:600 11px var(--f-mono);fill:var(--ink)}
 .g-track{fill:var(--k);fill-opacity:.22}
 .g-prog{fill:var(--k)}
 .g-base{stroke:var(--red);stroke-width:2;stroke-linecap:round;opacity:.85}
@@ -246,7 +246,7 @@ ul.tree,ul.tree ul{list-style:none;margin:0;padding:0}
 .g-ms{fill:var(--red)}
 .g-ms-f{fill:var(--panel);stroke:var(--red);stroke-width:2.5}
 .g-slip{stroke:var(--warn);stroke-width:1.6;stroke-dasharray:3 3}
-.g-mstx{font:400 10.5px var(--f-body);fill:var(--ink-2)}
+.g-mstx{font:400 11px var(--f-body);fill:var(--ink-2)}
 .g-gaptx{font:600 11px var(--f-mono);fill:var(--ink)}
 .g-ma{stroke:var(--ink-2);stroke-width:1;stroke-opacity:.55}
 .g-ma-box{fill:none;stroke:var(--ink-2);stroke-opacity:.45;stroke-dasharray:3 3}
@@ -299,9 +299,9 @@ main{padding-bottom:78px}
 .g-weekhead{fill:var(--week-strong)}
 .g-wk.cur{fill:var(--week-ink);font-weight:600}
 .nnext{font:400 11px var(--f-body);fill:var(--ink)}
-.nlab{font:500 10px var(--f-mono);fill:var(--ink-2);letter-spacing:.04em}
+.nlab{font:500 11px var(--f-mono);fill:var(--ink-2);letter-spacing:.04em}
 .nextact{margin:-4px 0 12px;font-size:12.5px;padding:6px 10px;background:var(--surface);border-left:3px solid var(--week-ink)}
-.nextact .nlab{font:500 10.5px var(--f-mono);color:var(--week-ink);text-transform:uppercase;margin-right:4px}
+.nextact .nlab{font:500 11px var(--f-mono);color:var(--week-ink);text-transform:uppercase;margin-right:4px}
 .dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(700px,calc(100% - 32px));z-index:15;display:flex;flex-direction:column;gap:10px;pointer-events:none}
 .dock>*{pointer-events:auto}
 .ai-panel{display:none;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px rgba(15,30,60,.28);max-height:min(48vh,440px);overflow:auto;padding:12px 16px}
@@ -328,7 +328,7 @@ main{padding-bottom:78px}
 .finding.hi{border-left-color:var(--red)}
 .finding.mid{border-left-color:var(--warn)}
 .finding .ft{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.sev{font:600 10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;padding:1px 6px;border:1px solid currentColor}
+.sev{font:600 11px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;padding:1px 6px;border:1px solid currentColor}
 .sev-hi{color:var(--red)}.sev-mid{color:var(--warn)}.sev-lo{color:var(--ink-2)}
 .fsrc{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .cite{display:inline-block;min-width:20px;height:20px;line-height:18px;text-align:center;margin:0 2px;padding:0 6px;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:10px;font:600 11px var(--f-mono)}
@@ -384,7 +384,7 @@ main{padding-bottom:0}
 /* Toppfält: glasmaterial */
 .bar{position:relative;z-index:10;padding:9px 20px;background:color-mix(in srgb,var(--panel) 72%,transparent);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);border-bottom:1px solid var(--hair)}
 .brand{font-weight:700;letter-spacing:-.02em;font-size:18px}
-.badge{font:500 10.5px var(--f-body);letter-spacing:.06em;border-radius:99px;padding:2px 9px;border:0;background:color-mix(in srgb,var(--ink) 7%,transparent)}
+.badge{font:500 11px var(--f-body);letter-spacing:.06em;border-radius:99px;padding:2px 9px;border:0;background:color-mix(in srgb,var(--ink) 7%,transparent)}
 .tabs{background:color-mix(in srgb,var(--ink) 6%,transparent);padding:3px;border-radius:11px;gap:2px}
 .tabs button,.tabs button[aria-selected="true"]{border:0;border-radius:8px;padding:5px 15px;font-weight:500}
 .tabs button[aria-selected="true"]{background:var(--panel);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14),0 0 0 .5px var(--hair)}
@@ -430,8 +430,8 @@ main{padding-bottom:0}
 .nname{font:600 13.5px var(--f-body);letter-spacing:-.012em}
 .nco{font:400 11.5px var(--f-body)}
 .sname{font:500 12.5px var(--f-body);letter-spacing:-.01em}
-.ssub,.expbadge{font:500 10.5px var(--f-body)}
-.nlab{font:600 9.5px var(--f-body);letter-spacing:.06em}
+.ssub,.expbadge{font:500 11px var(--f-body)}
+.nlab{font:600 11px var(--f-body);letter-spacing:.06em}
 .gbox{stroke:color-mix(in srgb,var(--ink) 28%,transparent);stroke-dasharray:3 4}
 .gtx{font:500 12px var(--f-body)}
 .handle{fill:var(--panel);stroke:var(--accent);stroke-width:2;filter:drop-shadow(0 1px 2px rgba(0,0,0,.2))}
@@ -552,7 +552,7 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
 .tr-t{border-collapse:separate;border-spacing:0;font-size:13px;table-layout:fixed;width:max-content;min-width:100%;user-select:none;-webkit-user-select:none}
 .tr-t th,.tr-t td{height:32px;padding:0 9px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);background:var(--panel);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
 .tr-t thead th{position:sticky;top:0;z-index:3;background:var(--surface);font-weight:600;cursor:pointer;border-bottom:1px solid var(--line)}
-.tr-t thead th .arr{margin-left:6px;font-size:9px;color:var(--accent)}
+.tr-t thead th .arr{margin-left:6px;font-size:11px;color:var(--accent)}
 .tr-t thead tr.f th{top:32px;z-index:3;padding:2px 4px;cursor:default;font-weight:400}
 .tr-t thead tr.f input{width:100%;height:26px;border:1px solid var(--hair);border-radius:6px;padding:0 7px;font:inherit;background:var(--panel);color:var(--ink)}
 .tr-t th.rn{position:sticky;left:0;z-index:2;width:44px;padding:0;text-align:center;font-size:11px;font-weight:500;color:var(--ink-2);background:var(--surface);cursor:pointer}
@@ -631,16 +631,82 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
   .bar .tabs{max-width:100%;overflow-x:auto}
   .bar .tabs button{white-space:nowrap}
 }
+
+/* ===== Förenkling och ny start (v12) ===== */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:-1px}
+.projname .badge{display:none}
+.bar .btn.icon{width:34px;padding:0;text-align:center;font-weight:700;border-radius:50%}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font:inherit;text-decoration:underline}
+.sheet .alt{margin-top:14px;font-size:12.5px;color:var(--ink-2)}
+.sheet .gcard{background:var(--panel);border:1px solid var(--hair);border-radius:22px;padding:24px;width:100%;max-width:560px;box-shadow:0 30px 90px rgba(0,0,0,.30);max-height:84vh;overflow:auto}
+.gcard h2{font:700 22px var(--f-display);letter-spacing:-.02em;margin:0 0 4px}
+.gcard h3{font:600 12px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);margin:18px 0 8px}
+.gcard dl{margin:0;display:grid;grid-template-columns:minmax(110px,max-content) 1fr;gap:6px 14px;font-size:13.5px}
+.gcard dt{font-weight:650}.gcard dd{margin:0;color:var(--ink-2)}
+.gcard .row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;align-items:center}
+.gcard select,.gcard input[type=text]{width:100%;padding:8px 10px;border:1px solid var(--hair);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+.gcard .gtop{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+#viewStart{flex:1;min-height:0;overflow:auto;padding:20px 16px 130px}
+.st-wrap{max-width:860px;margin:0 auto}
+.st-wrap h2{font:700 26px var(--f-display);letter-spacing:-.022em;margin:0 0 4px}
+.st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:18px}
+.st-card{border:1px solid var(--hair);border-radius:18px;background:var(--panel);box-shadow:var(--shadow);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.st-card h3{font:600 12px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);margin:0}
+.st-card .big{font:700 34px var(--f-display);letter-spacing:-.03em;line-height:1}
+.st-card .big small{font:500 14px var(--f-body);color:var(--ink-2);letter-spacing:0;margin-left:6px}
+.st-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.st-card li button{width:100%;text-align:left;background:none;border:0;padding:7px 8px;border-radius:9px;cursor:pointer;display:flex;gap:8px;align-items:baseline;color:var(--ink);font:inherit;font-size:13.5px;min-height:34px}
+.st-card li button:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.st-card li b{font-weight:650;white-space:nowrap}
+.st-card li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-2);flex:1}
+.st-card .muted{font-size:13px}
+.st-intro{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--hair));background:color-mix(in srgb,var(--accent) 6%,var(--panel));border-radius:18px;padding:16px 18px;margin-top:16px}
+.st-intro ol{margin:8px 0 12px;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.st-intro ol button{margin-left:8px}
+.st-hello{margin-top:16px;padding:12px 16px;border-radius:14px;background:color-mix(in srgb,var(--ok,#34C759) 14%,var(--panel));font-size:14px}
+.tr-chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tr-chip{border:1px solid var(--hair);background:var(--panel);color:var(--ink);border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer;min-height:30px}
+.tr-chip small{color:var(--ink-2);margin-left:3px}
+.tr-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--panel)}
+.tr-chip[aria-pressed="true"] small{color:inherit;opacity:.75}
+.tr-chipsep{width:1px;height:18px;background:var(--hair);margin:0 2px}
+.tr-undo{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;background:var(--ink);color:var(--panel);padding:3px 4px 3px 12px;border-radius:999px}
+.tr-undo[hidden]{display:none}
+.tr-undo button{background:var(--panel);color:var(--ink);border:0;border-radius:999px;padding:3px 10px;cursor:pointer;font:inherit;font-weight:600}
+.tr-more{position:relative}
+.tr-more summary{list-style:none;cursor:pointer;border:1px solid var(--hair);background:var(--panel);border-radius:9px;padding:4px 11px;min-height:30px;display:flex;align-items:center;font-weight:700}
+.tr-more summary::-webkit-details-marker{display:none}
+.tr-more .tr-menu{position:absolute;right:0;top:calc(100% + 4px);z-index:8;background:var(--panel);border:1px solid var(--hair);border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,.2);padding:6px;display:flex;flex-direction:column;min-width:170px}
+.tr-menu .btn{justify-content:flex-start;border:0;background:none}
+.pt-actions .prob{position:relative}
+.insp button,.tr-detail button,.addrow button,.palette button{min-height:28px}
+.insp .caret,.insp .op,.tr-detail .op{min-width:28px;min-height:28px}
+small{font-size:11.5px}
+.tr-grid .op,#trGrid .op{min-width:24px;min-height:24px}
+.insp li button[data-act]{min-width:28px}
+@media (pointer:coarse){button,.btn,.tg,.tr-chip,select{min-height:40px}.insp .caret,.insp .op{min-width:40px}}
+@media (max-width:720px){
+  .bar{flex-wrap:wrap}
+  .bar .projname{display:none}
+  .bar .tabs{order:5;width:100%;max-width:100%;overflow:visible;display:grid;grid-template-columns:repeat(4,1fr)}
+  .bar .tabs button{padding:7px 4px;font-size:13px;white-space:nowrap;text-align:center}
+  .bar .actions .btn{padding-left:10px;padding-right:10px}
+  .palette{display:flex;flex-wrap:nowrap;overflow-x:auto;margin:8px;padding:8px 12px}
+  .palette h2{display:none}
+  #palette{display:flex;gap:10px;flex-wrap:nowrap}
+}
 </style>
 
 
 <header class="bar">
+  <h1 class="sr-only" id="pageH1">Projektet</h1>
   <div class="brand">
     <svg width="30" height="20" viewBox="0 0 30 20" aria-hidden="true"><line x1="1" y1="10" x2="29" y2="10" stroke="var(--red)" stroke-width="3.5" stroke-linecap="round"/><circle cx="8" cy="10" r="4.5" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"/></svg>
     Projektet
   </div>
   <div class="projname"><input id="projName" aria-label="Projektnamn"><span class="badge" id="brBadge"></span><span class="badge" id="exBadge">Exempel</span></div>
   <nav class="tabs" role="tablist" aria-label="Vyer">
+    <button role="tab" id="tabStart" data-view="start" aria-selected="false">Start</button>
     <button role="tab" id="tabNet" data-view="net" aria-selected="true">Projektnät</button>
     <button role="tab" id="tabPlan" data-view="plan" aria-selected="false">Tidplan</button>
     <button role="tab" id="tabCheck" data-view="check" aria-selected="false">Avstämning</button>
@@ -648,12 +714,14 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
   </nav>
   <div class="as"><label for="asSel">Visa som</label><select id="asSel"></select></div>
   <div class="actions">
-    <button class="btn" id="btnExample">Ladda exempel</button>
+    <button class="btn icon" id="btnHelp" aria-label="Hjälp och ordlista" title="Hjälp och ordlista">?</button>
+    <button class="btn" id="btnInvite" title="Skapa en inbjudningslänk">Bjud in</button>
     <button class="btn primary" id="btnNew">Nytt projekt</button>
   </div>
 </header>
 
 <main>
+  <section id="viewStart" hidden aria-label="Start"><div class="st-wrap" id="startBody"></div></section>
   <section id="viewNet" aria-label="Projektnät">
     <aside class="palette" aria-label="Areor att lägga till">
       <h2>Areor</h2>
@@ -684,16 +752,15 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
     </div>
     <div class="tr-tools">
       <input id="trQ" type="search" placeholder="Sök i listan" aria-label="Sök i listan" autocomplete="off">
-      <select id="trStat" aria-label="Filtrera på status"></select>
-      <select id="trPart" aria-label="Filtrera på ansvarig part"></select>
-      <button class="btn sm" id="trFil" aria-pressed="false">Kolumnfilter</button>
+            <select id="trPart" aria-label="Filtrera på ansvarig part"></select>
+      <details class="tr-more"><summary aria-label="Fler verktyg" title="Fler verktyg">⋯</summary><div class="tr-menu"><button class="btn sm" id="trFil" aria-pressed="false">Kolumnfilter</button></div></details>
       <button class="btn sm primary" id="trNew">+ Ny punkt</button>
-      <span class="tr-msg" id="trMsg" role="status"></span>
+      <span class="tr-msg" id="trMsg" role="status"></span><span class="tr-undo" id="trUndo" hidden></span>
       <span class="tr-sp"></span>
       <button class="btn sm" id="trSet">Inställningar</button>
       <button class="btn sm" id="trXl">Excel</button>
-      <button class="btn sm" id="trData">Data</button>
     </div>
+    <div class="tr-chips" id="trChips" role="group" aria-label="Filtrera på status eller vem som väntar" style="padding:0 20px 6px"></div>
     <div class="tr-info" id="trInfo"></div>
     <div class="tr-main" id="trMain">
       <div class="tr-gridwrap" id="trGrid" tabindex="0" role="grid" aria-label="Tabell. Använd piltangenter, Enter för att redigera"></div>
@@ -709,6 +776,7 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
   <div class="ai-bar" id="aiBar"><span class="orb" aria-hidden="true"></span><input id="aiQ" autocomplete="off" placeholder="Fråga projektet…" aria-label="Fråga projektet"><button class="ai-send" id="aiSend" type="button">Fråga</button></div>
 </div>
 
+<div class="sheet" id="gModal" hidden role="dialog" aria-modal="true" aria-label="Dialog"><div class="gcard" id="gBody"></div></div>
 <div class="sheet" id="newSheet" hidden role="dialog" aria-modal="true" aria-labelledby="newTitle">
   <form id="newForm">
     <h2 id="newTitle">Nytt projekt</h2>
@@ -721,6 +789,7 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
     <label for="npStart">Startdatum</label>
     <input id="npStart" type="date" required>
     <label class="chk"><input type="checkbox" id="npTpl" checked><span>Starta med en röd tråd för branschen. Du kan ändra allt efteråt.</span></label>
+    <div class="alt">Vill du bara titta först? <button type="button" class="linkbtn" id="btnExample">Öppna exempelprojektet</button></div>
     <div class="row"><button type="button" class="btn" id="npCancel">Avbryt</button><button class="btn primary" type="submit">Starta projekt</button></div>
   </form>
 </div>
@@ -1364,7 +1433,7 @@ function renderInspector(){
     }
     if(editable){
       const mine=subs(a.id),others=P.areas.filter(x=>x.id!==a.id&&x.id!==P.plId);
-      if(mine.length&&others.length)h+=`<div class="sec-h"><h3>Dela alla underareor med</h3></div><div>`+others.map(x=>`<button class="tg" data-act="areashare" data-area="${x.id}" aria-pressed="${mine.every(m=>m.shared.indexOf(x.id)>-1)}">${esc(x.name)}</button>`).join('')+`</div><p class="note">Delar alla underareor på en gång. Du kan också dra i cirkeln på arean i nätet. Mappar direkt i arean förblir privata.</p>`;
+      if(mine.length&&others.length)h+=`<div class="sec-h"><h3>Vem ska få se det du delar?</h3></div><div>`+others.map(x=>`<button class="tg" data-act="areashare" data-area="${x.id}" aria-pressed="${mine.every(m=>m.shared.indexOf(x.id)>-1)}">${esc(x.name)}</button>`).join('')+`</div><p class="note">Delar alla underareor på en gång. Du kan också dra i cirkeln på arean i nätet. Mappar direkt i arean förblir privata.</p>`;
     }
     if(a.type==='pl'&&isPL())h+=`<div style="margin-bottom:14px"><button class="btn primary" data-act="gotoplan">Öppna tidplanen</button></div>`;
     if(editable){
@@ -1605,7 +1674,7 @@ function renderDock(){
   const dock=$('#aiDock');if(!dock)return;
   const v=area(UI.as)||{name:''},chat=UI.chat[UI.as]||[],live=!!SAMPLE;
   dock.className='dock'+(UI.aiOpen?' open':'');
-  let h=`<div class="ai-head"><span><b>Fråga projektet</b> <span class="muted">som ${esc(v.name)}</span></span><span>${chat.length&&!UI.aiBusy?'<button class="btn sm" data-act="aiclear">Ny konversation</button> ':''}<button class="btn sm" data-act="aiclose" aria-label="Stäng">✕</button></span></div>`;
+  let h=`<div class="ai-head"><span><b>${live?'Fråga projektet':'Sök i projektet'}</b> <span class="muted">som ${esc(v.name)}</span></span><span>${chat.length&&!UI.aiBusy?'<button class="btn sm" data-act="aiclear">Ny konversation</button> ':''}<button class="btn sm" data-act="aiclose" aria-label="Stäng">✕</button></span></div>`;
   h+=`<p class="note">AI:n läser bara handlingar som ${esc(v.name)} har åtkomst till, och tidplanen. Byt perspektiv med Visa som i toppen.</p>`;
   if(!live)h+=`<div class="preview">AI är inte tillgänglig i den här vyn. Enkel textsökning används istället. Åtkomstreglerna gäller ändå.</div>`;
   if(live)chat.forEach((m,i)=>{
@@ -1622,7 +1691,8 @@ function renderDock(){
     <button data-act="aiex" data-q="Skriv ett beslutsutkast av projektmöte 12">Beslutsutkast från projektmöte 12</button>
     <button data-act="aiex" data-q="Hur stor är budgeten?">Hur stor är budgeten?</button></div>`;
   const pn=$('#aiPanel');pn.innerHTML=h;pn.scrollTop=pn.scrollHeight;
-  const send=$('#aiSend');send.textContent=UI.aiBusy?'Stoppa':'Fråga';
+  const send=$('#aiSend');send.textContent=UI.aiBusy?'Stoppa':(SAMPLE?'Fråga':'Sök');
+  $('#aiQ').placeholder=SAMPLE?'Fråga projektet…':'Sök i projektets handlingar…';$('#aiQ').setAttribute('aria-label',SAMPLE?'Fråga projektet':'Sök i projektets handlingar');
 }
 (function(){
   const q=$('#aiQ');
@@ -1821,14 +1891,14 @@ function renderPlan(){
   const lateLbl=st&&st.hasBase&&!st.done&&!st.notStarted&&st.delay>0.5;
   const baseBtn=!P.baseline?`<button class="btn" data-act="baseline">Lås baslinje</button>`:(UI.confirmBase?`<button class="btn danger" data-act="baseline">Bekräfta ny baslinje</button><button class="btn" data-act="basecancel">Avbryt</button>`:`<button class="btn" data-act="baseline">Lås om baslinje</button>`);
   $('#planTop').innerHTML=`<div class="pt-stats">
-    <div><span class="k">Planerad klar</span><b>${planned}</b></div>
-    <div><span class="k">Prognos</span><b class="${late?'late':''}">${fc}</b></div>
-    <div><span class="k">Läge mot röda tråden</span><b class="${lateLbl?'late':''}">${lbl}</b></div>
-    <div><span class="k">Förskjutning</span><b class="${late?'late':''}">${slipLbl}</b></div>
-    <div><span class="k">Andon</span><b>${andon}</b></div>
-    <div><span class="k">Förankring pågår</span><b>${nemaOpen}</b></div>
+    <div><span class="k" title="När den röda tråden var planerad att bli klar enligt den låsta baslinjen">Planerad klar</span><b>${planned}</b></div>
+    <div><span class="k" title="När det blir klart om det fortsätter som nu">Prognos</span><b class="${late?'late':''}">${fc}</b></div>
+    <div><span class="k" title="Hur långt arbetet har kommit jämfört med den låsta planen">Läge mot plan</span><b class="${lateLbl?'late':''}">${lbl}</b></div>
+    <div><span class="k" title="Hur många dagar prognosen ligger efter (+) eller före (−) den låsta planen">Förskjutning</span><b class="${late?'late':''}">${slipLbl}</b></div>
+    <div><span class="k" title="Aktiviteter som är markerade som stoppade">Stoppar arbetet</span><b>${andon}</b></div>
+    <div><span class="k" title="Aktiviteter där beslutet ännu inte är förankrat hos alla berörda">Förankring pågår</span><b>${nemaOpen}</b></div>
   </div>
-  <div class="pt-actions">${baseBtn}<button class="btn sm" data-act="zout" aria-label="Zooma ut">−</button><button class="btn sm" data-act="zin" aria-label="Zooma in">+</button><button class="btn primary" data-act="newtask">Ny aktivitet</button></div>
+  <div class="pt-actions">${baseBtn}<button class="btn sm" data-act="zout" aria-label="Zooma ut">−</button><button class="btn sm" data-act="zin" aria-label="Zooma in">+</button><button class="btn" data-act="gocheck" title="Avvikelser och risker i tidplanen">Problem (${scheduleChecks().length})</button><button class="btn primary" data-act="newtask">Ny aktivitet</button></div>
   ${P.baseline?'':'<div class="pnote">Baslinjen är inte låst. Lås den när planen är klar. Då stannar den raka röda linjen som det som borde ha hänt, och en flytande röd tråd visar hur det faktiskt går.</div>'}`;
   if(!P.tasks.length){
     $('#planBody').innerHTML=`<div class="plan-empty"><h2>Börja med den röda tråden</h2><p class="muted">Lägg in de aktiviteter som måste ske i rätt ordning och markera dem som röd tråd. Spinn sedan trådar mellan aktiviteter som väntar på varandra. När planen är klar låser du baslinjen.</p><button class="btn primary" data-act="newtask">Lägg till första aktiviteten</button></div>`;
@@ -1882,7 +1952,7 @@ function renderPlan(){
       if(bw>20)s+=`<text class="g-matx" x="${bx+bw/2}" y="${by+bh/2+4}" text-anchor="middle">間</text>`;
     }
     s+=`<text class="g-pct" x="${x+w+(t.buffer||0)*px+7}" y="${by+bh/2+4}">${t.progress}%</text>`;
-    if(t.andon)s+=`<circle class="g-andon-ring" cx="${x+11}" cy="${by+bh/2}" r="6"/><circle class="g-andon" cx="${x+11}" cy="${by+bh/2}" r="6"><title>Andon: något stoppar arbetet</title></circle>`;
+    if(t.andon)s+=`<circle class="g-andon-ring" cx="${x+11}" cy="${by+bh/2}" r="6"/><circle class="g-andon" cx="${x+11}" cy="${by+bh/2}" r="6"><title>Stopp: något stoppar arbetet</title></circle>`;
     if(t.nema!=='none')s+=`<circle class="${t.nema==='done'?'g-ne-done':'g-ne-open'}" cx="${x+w}" cy="${by}" r="5.5"><title>Förankring: ${t.nema==='done'?'klar':'pågår'}</title></circle>`;
     s+=`<rect class="g-move" data-h="move" x="${x}" y="${by}" width="${Math.max(w-8,4)}" height="${bh}"/>`;
     s+=`<rect class="g-rz" data-h="rz" x="${x+w-8}" y="${by}" width="8" height="${bh}"/>`;
@@ -1951,7 +2021,7 @@ function renderLegend(){
     <div><b>Två röda trådar</b>Den raka linjen är planen som den låstes, det som borde ha hänt. Den vågiga flytande tråden är prognosen. Försenat arbete skjuter den framåt, och gula streck visar förskjutningen.</div>
     <div><b>Aktuell vecka</b>Det gröna bandet markerar veckan vi är i just nu.</div>
     <div><b>Ma (間), buffert</b>Det streckade utrymmet efter en aktivitet är medvetet tomrum. En försening som ryms i bufferten flyttar inte nästa steg.</div>
-    <div><b>Nemawashi och andon</b>Ring vid slutet: förankring öppen eller klar. Pulserande gul prick: något stoppar arbetet. Rött streck under en aktivitet: var den låg i baslinjen. Röd +N d: dagar efter baslinjen.</div>`;
+    <div><b>Förankring och stopp</b>Ring vid slutet: förankring öppen eller klar. Pulserande gul prick: något stoppar arbetet. Rött streck under en aktivitet: var den låg i baslinjen. Röd +N d: dagar efter baslinjen.</div>`;
 }
 function renderEditor(){
   const el=$('#taskEditor');
@@ -1970,7 +2040,7 @@ function renderEditor(){
     <label>Buffert (ma) i dagar<input type="number" id="tBuf" min="0" value="${t.buffer||0}"></label>
     <label>Förankring<select id="tNema"><option value="none"${t.nema==='none'?' selected':''}>Inte aktuell</option><option value="open"${t.nema==='open'?' selected':''}>Pågår</option><option value="done"${t.nema==='done'?' selected':''}>Klar</option></select></label>
     <label class="chk"><input type="checkbox" id="tMain"${t.main?' checked':''}>Ligger på röda tråden</label>
-    <label class="chk"><input type="checkbox" id="tAndon"${t.andon?' checked':''}>Andon: något stoppar arbetet</label>
+    <label class="chk"><input type="checkbox" id="tAndon"${t.andon?' checked':''}>Något stoppar arbetet</label>
   </div>
   <div class="ed-deps"><span class="muted">Väntar på:</span>${preds.length?preds.map(p=>`<span class="chip">${esc(p.name)}<button data-act="rmdep" data-p="${p.id}" aria-label="Klipp tråden till ${esc(p.name)}">✕</button></span>`).join(''):'<span class="muted">ingen tråd ännu</span>'}
     <select id="tDepAdd" aria-label="Spinn en tråd"><option value="">Spinn en tråd till…</option>${cands.map(o=>`<option value="${o.id}">${esc(o.name)}</option>`).join('')}</select></div>
@@ -2055,6 +2125,7 @@ $('#planTop').addEventListener('click',e=>{
   if(act==='zin'){UI.px=Z[Math.min(Z.length-1,Z.indexOf(UI.px)+1)]||14;renderPlan()}
   else if(act==='zout'){UI.px=Z[Math.max(0,Z.indexOf(UI.px)-1)]||14;renderPlan()}
   else if(act==='newtask')newTask();
+  else if(act==='gocheck')setView('check');
   else if(act==='baseline'){
     if(!P.baseline)lockBaseline();
     else if(!UI.confirmBase)UI.confirmBase=true;
@@ -2078,6 +2149,7 @@ function renderChrome(){
   $('#exBadge').hidden=!P.example;
   $('#brBadge').textContent=(BR[P.branch]||BR.bygg).label;
   $('#tabPlan').hidden=!isPL();
+  $('#tabCheck').hidden=isPL();
   renderAs();renderPalette();renderDock();
 }
 
@@ -2100,7 +2172,7 @@ function scheduleChecks(){
     if(bEnd(t)<t0)out.push({sev:t.main?'hög':'medel',title:`${t.name} borde varit klar`,detail:`Planerat slut ${wf(bEnd(t))}, ${t.progress}% klart.`,tasks:[t.id]});
     else if(bStart(t)<t0&&t.progress===0)out.push({sev:t.main?'hög':'medel',title:`${t.name} borde ha startat`,detail:`Planerad start ${wf(bStart(t))}, inget arbete rapporterat.`,tasks:[t.id]});
     else if(slip>=1&&root)out.push({sev:t.main?'medel':'låg',title:`${t.name} slutar ${slip} dagar efter plan`,detail:`Planerat slut ${wf(bEnd(t))}, prognos ${wf(PR[t.id].pe)}.${t.main?' Ligger på röda tråden.':''}`,tasks:[t.id]});
-    if(t.andon){const d=descendants(t.id),dm=d.filter(x=>x.main);out.push({sev:(dm.length||t.main)?'hög':'medel',title:`Andon: ${t.name} stoppar arbetet`,detail:`${d.length} aktiviteter väntar direkt eller indirekt på den${dm.length?`, varav ${dm.length} på röda tråden`:''}.`,tasks:[t.id].concat(dm.map(x=>x.id).slice(0,3))})}
+    if(t.andon){const d=descendants(t.id),dm=d.filter(x=>x.main);out.push({sev:(dm.length||t.main)?'hög':'medel',title:`Stopp: ${t.name} stoppar arbetet`,detail:`${d.length} aktiviteter väntar direkt eller indirekt på den${dm.length?`, varav ${dm.length} på röda tråden`:''}.`,tasks:[t.id].concat(dm.map(x=>x.id).slice(0,3))})}
     if(t.nema==='open'&&bStart(t)-t0<=21)out.push({sev:'medel',title:`Förankring pågår: ${t.name}`,detail:`Förankringen är inte klar och aktiviteten ${bStart(t)<=t0?'har börjat':'startar '+wf(bStart(t))}.`,tasks:[t.id]});
     if(t.buffer>0&&slip>0)out.push({sev:slip>=t.buffer?'medel':'låg',title:`Bufferten efter ${t.name} används`,detail:`${Math.min(slip,t.buffer)} av ${t.buffer} dagars ma (buffert) är förbrukad. Prognosen ligger ${slip} dagar efter plan.`,tasks:[t.id]});
   });
@@ -2117,10 +2189,10 @@ function findingHTML(f,srcs,det){
 function renderCheck(){
   const el=$('#checkBody');if(!el)return;
   const det=scheduleChecks(),ai=UI.checkAI[UI.as],v=area(UI.as)||{name:''};
-  let h=`<h2 class="chk-h">Avstämning</h2><p class="muted">Kontrollerar tidplanen mot sig själv och mot de handlingar som ${esc(v.name)} har åtkomst till.</p>`;
+  let h=(isPL()?`<button class="btn sm" data-act="toplan">← Tillbaka till tidplanen</button>`:'')+`<h2 class="chk-h">Avstämning</h2><p class="muted">Kontrollerar tidplanen mot sig själv och mot de handlingar som ${esc(v.name)} har åtkomst till.</p>`;
   h+=`<div class="chk-sec"><h3>Tidplanen · ${det.length} ${det.length===1?'avvikelse':'avvikelser'}</h3>`+(det.length?det.map(f=>findingHTML(f,null,true)).join(''):`<div class="empty" style="margin-top:8px">Inga avvikelser hittades i tidplanen.</div>`)+`</div>`;
-  h+=`<div class="chk-sec"><div class="sec-h"><h3>AI: handlingar mot tidplan</h3><span>`+(UI.checkBusy?`<button class="btn sm" data-act="chkstop">Stoppa</button>`:`<button class="btn primary sm" data-act="chkrun"${SAMPLE?'':' disabled'}>${ai?'Kör om':'Kör AI-avstämning'}</button>`)+`</span></div>`;
-  if(!SAMPLE)h+=`<div class="preview">AI är inte tillgänglig i den här vyn.</div>`;
+  h+=`<div class="chk-sec"><div class="sec-h"><h3>AI: handlingar mot tidplan</h3><span>`+(UI.checkBusy?`<button class="btn sm" data-act="chkstop">Stoppa</button>`:(SAMPLE?`<button class="btn primary sm" data-act="chkrun">${ai?'Kör om':'Kör AI-avstämning'}</button>`:''))+`</span></div>`;
+  if(!SAMPLE)h+=`<div class="preview">AI-avstämning kräver AI, som inte är kopplad i den här versionen. Kontrollerna av tidplanen ovan fungerar ändå.</div>`;
   if(UI.checkBusy)h+=`<div class="note">AI:n läser handlingarna och tidplanen. Det kan ta en halv minut…</div>`;
   if(UI.checkErr)h+=`<p class="derr">${esc(UI.checkErr)}</p>`;
   if(ai){
@@ -2156,6 +2228,7 @@ async function runCheck(){
     const a=b.dataset.act;
     if(a==='chkrun')runCheck();
     else if(a==='chkstop'){if(checkCtl)checkCtl.abort()}
+    else if(a==='toplan'){setView('plan')}
     else if(a==='gotask'){if(isPL()){UI.selTask=b.dataset.id;setView('plan')}}
     else if(a==='ccite'){const ai=UI.checkAI[UI.as],sr=ai&&ai.srcs[+b.dataset.n-1];if(sr)openSource(sr)}
   });
@@ -2270,7 +2343,42 @@ function tMake(){
   return {v:1,project:'Pumpstation Strandviken',me:'u3',settings:{vis:'own'},profile,perms,users,parts,lists,events:ev};
 }
 function tLoad(){try{const s=localStorage.getItem(TKEY);const o=s&&JSON.parse(s);return o&&o.lists&&o.users&&o.profile&&o.perms?o:null}catch(e){return null}}
-function tSave(){try{localStorage.setItem(TKEY,JSON.stringify(T))}catch(e){}}
+function tSave(lbl){
+  let s=null;try{s=JSON.stringify(T);localStorage.setItem(TKEY,s)}catch(e){}
+  if(s&&TU.cur&&s!==TU.cur&&!TU.noUndo&&lbl){TU.undoSnap=TU.cur;tToast(lbl)}
+  if(s)TU.cur=s;
+}
+function tToast(lbl){
+  const el=$('#trUndo');if(!el)return;
+  el.hidden=false;el.innerHTML=`<span>${esc(lbl)}</span><button type="button" data-undo>Ångra</button>`;
+  clearTimeout(TU.undoT);TU.undoT=setTimeout(()=>{el.hidden=true;TU.undoSnap=null},12000);
+}
+function tUndo(){
+  if(!TU.undoSnap)return;
+  const me=T.me;T=JSON.parse(TU.undoSnap);T.me=me;TU.noUndo=true;tSave();TU.noUndo=false;
+  TU.undoSnap=null;TU.pend=null;TU.a=null;TU.b=null;TU.edit=null;
+  const el=$('#trUndo');if(el)el.hidden=true;
+  renderTrace();tMsg('Ändringen är ångrad.');
+}
+/* Vem väntar en punkt på? 'me' = jag kan göra nästa steg, 'other' = någon annan, null = stängd/ej berörd */
+function tWho(row,u){
+  if(row.status==='closed')return null;
+  const tr=tTrans(row,u).filter(x=>x.ok).map(x=>x.t.act);
+  const resp=row.v.person?row.v.person===u.id:row.v.part===u.part;
+  if(row.status==='open'&&resp&&tr.indexOf('fix')>-1)return 'me';
+  const involved=u.role!=='admin'||row.createdBy===u.id||resp;
+  if(row.status==='fixed'&&involved&&tr.indexOf('approve')>-1)return 'me';
+  if(row.status==='ok'&&involved&&tr.indexOf('close')>-1)return 'me';
+  if(row.createdBy===u.id||row.v.part===u.part||row.v.person===u.id)return 'other';
+  return null;
+}
+function tWaitAll(u){
+  const me=[],other=[];
+  T.lists.forEach(l=>tVis(l,u).forEach(r=>{const w=tWho(r,u);if(w==='me')me.push({l:l,r:r});else if(w==='other')other.push({l:l,r:r})}));
+  return {me:me,other:other};
+}
+function tRowText(l,r){const v=r.v;return String(v.desc||v.step||v.doc||v.func||v.ref||'').slice(0,90)}
+
 let T=tLoad()||tMake();
 const TU={list:null,a:null,b:null,sort:{},fil:{},showFil:false,q:'',stat:'',part:'',panel:false,rowId:null,ptab:'comments',edit:null,fin:null,drag:false,pend:null,view:null,modal:null,confirmReset:false,msgT:0};
 const tMe=()=>T.users.find(u=>u.id===T.me)||T.users[0];
@@ -2315,6 +2423,7 @@ function tRows(list,u){
   const q=TU.q.trim().toLowerCase();
   if(q)rows=rows.filter(r=>list.cols.some(c=>tText(r,c).toLowerCase().indexOf(q)>-1));
   if(TU.stat)rows=rows.filter(r=>r.status===TU.stat);
+  if(TU.wait)rows=rows.filter(r=>tWho(r,u)===TU.wait);
   if(TU.part)rows=rows.filter(r=>r.v.part===TU.part);
   const fl=TU.fil[list.id]||{};
   list.cols.forEach(c=>{const f=(fl[c.key]||'').trim().toLowerCase();if(f)rows=rows.filter(r=>tText(r,c).toLowerCase().indexOf(f)>-1)});
@@ -2379,15 +2488,18 @@ function tRenderSheets(){
 function tRenderTools(){
   const u=tMe();
   $('#trMe').innerHTML=T.users.map(x=>`<option value="${x.id}"${x.id===u.id?' selected':''}>${esc(x.name)}, ${T_ROLES[x.role]} (${esc(tPart(x.part).name)})</option>`).join('');
-  $('#trStat').innerHTML='<option value="">Alla statusar</option>'+T.profile.statuses.map(s=>`<option value="${s.id}"${TU.stat===s.id?' selected':''}>${esc(s.name)}</option>`).join('');
+  {const L=tList(),vis=tVis(L,u);let nm=0,no=0;vis.forEach(r=>{const w=tWho(r,u);if(w==='me')nm++;else if(w==='other')no++});
+  const chip=(k,label,n,on)=>`<button type="button" class="tr-chip" data-chip="${k}" aria-pressed="${on}">${label} <small>${n}</small></button>`;
+  $('#trChips').innerHTML=chip('','Alla',vis.length,!TU.stat&&!TU.wait)+chip('wait:me','Väntar på mig',nm,TU.wait==='me')+chip('wait:other','Väntar på andra',no,TU.wait==='other')+'<span class="tr-chipsep"></span>'+T.profile.statuses.map(s=>chip('st:'+s.id,esc(s.name),vis.filter(r=>r.status===s.id).length,TU.stat===s.id)).join('')}
   $('#trPart').innerHTML='<option value="">Alla parter</option>'+T.parts.filter(p=>p.id!=='pl').map(p=>`<option value="${p.id}"${TU.part===p.id?' selected':''}>${esc(p.name)}</option>`).join('');
   $('#trNew').disabled=!tCan(u,'create');
-  $('#trSet').disabled=!tCan(u,'settings');
-  $('#trData').disabled=!tCan(u,'io');
+  $('#trSet').disabled=!tCan(u,'settings');$('#trSet').title=tCan(u,'settings')?'':'Kräver rollen Beställare eller Admin';
+  $('#trXl').title=tCan(u,'io')?'':'Kräver rollen Beställare eller Admin';
   $('#trXl').disabled=!tCan(u,'io');
   $('#trFil').setAttribute('aria-pressed',TU.showFil);
 }
 function renderTrace(){
+  if(!TU.cur){try{TU.cur=JSON.stringify(T)}catch(e){}}
   if(!TU.list)TU.list=T.lists[0].id;
   tRenderTools();tRenderSheets();tRenderGrid();tRenderDetail();
 }
@@ -2459,7 +2571,7 @@ function tBeginEdit(r,c,ch){
   const finish=(commit,dr,dc)=>{
     if(!TU.edit)return;
     TU.edit=null;TU.fin=null;
-    if(commit&&tSetVal(row,col,ctl.value))tSave();
+    if(commit&&tSetVal(row,col,ctl.value))tSave(row.no+': '+col.label+' ändrad');
     TU.a={r:Math.max(0,r+(dr||0)),c:Math.max(0,Math.min(V.list.cols.length-1,c+(dc||0)))};TU.b=null;
     tRenderAll();
     $('#trGrid').focus({preventScroll:true});
@@ -2482,7 +2594,7 @@ function tClearRange(){
     if(!tCanEdit(u,row,col)){skip++;continue}
     if(tSetVal(row,col,''))n++;
   }
-  if(n)tSave();
+  if(n)tSave('Tömde '+n+' celler');
   tMsg(`Tömde ${n} celler${skip?`, ${skip} hoppades över (saknar behörighet)`:''}.`);
   tRenderAll();
 }
@@ -2510,7 +2622,7 @@ function tPaste(txt){
       if(tSetVal(row,col,pv))n++;
     });
   });
-  tSave();tRenderAll();
+  tSave('Klistrade in '+n+' värden');tRenderAll();
   tMsg(`Klistrade in ${n} värden${made?` och skapade ${made} nya rader`:''}${skip?`. ${skip} värden hoppades över: saknar behörighet eller okänt värde`:''}.`);
 }
 function tMove(dr,dc,ext){
@@ -2591,7 +2703,7 @@ function tDoTrans(row,t,comment){
   if(!ok){tMsg('Du får inte göra den åtgärden just nu.');return}
   row.status=t.to;
   tLog(row,'status',{from:t.from,to:t.to,text:comment||''});
-  TU.pend=null;tSave();tRenderAll();
+  TU.pend=null;tSave(`${row.no}: ${tStat(t.from).name} till ${tStat(t.to).name}`);tRenderAll();
   tMsg(`${row.no}: ${tStat(t.from).name} till ${tStat(t.to).name}.`);
 }
 
@@ -2613,7 +2725,8 @@ function tModalHTML(){
     return `<div class="top"><div><h2>Excel</h2><div class="td-hint">Hämta spårbarhetslistorna som en Excel-fil.</div></div><button class="td-x" data-m="close" aria-label="Stäng">✕</button></div>`+
       `<h3>Exportera</h3><div class="td-hint">En flik per lista (${T.lists.map(l=>esc(l.name)).join(', ')}) med samma kolumner och rubriker som i tabellen. Du får de ${n} rader som ${esc(T_ROLES[u.role].toLowerCase())} ser. Statusar färgas som i appen.</div>`+
       `<div style="margin-top:12px;text-align:left"><label style="display:inline-flex;gap:8px;align-items:center;cursor:pointer;margin:0;width:auto"><input type="checkbox" id="trXlHist" style="width:auto;margin:0"> Ta med en extra flik med historik (vem ändrade vad och när)</label></div>`+
-      `<div class="row"><button class="btn sm primary" data-m="xlexp">Ladda ner Excel-fil</button><span class="td-hint" id="trXlMsg" role="status"></span></div>`;
+      `<div class="row"><button class="btn sm primary" data-m="xlexp">Ladda ner Excel-fil</button><span class="td-hint" id="trXlMsg" role="status"></span></div>`+
+      `<h3>Avancerat</h3><div class="td-hint">Spara eller läs in hela projektet (alla listor, historik och inställningar) som en JSON-text.</div><div class="row"><button class="btn sm" data-m="opendata">Öppna JSON-export och import</button></div>`;
   }
   if(m==='data'){
     const json=JSON.stringify(T,null,1);
@@ -2825,13 +2938,20 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
   /* Verktygsfält */
   $('#trMe').addEventListener('change',e=>{T.me=e.target.value;tSave();TU.a=null;TU.b=null;TU.pend=null;renderTrace()});
   $('#trQ').addEventListener('input',e=>{TU.q=e.target.value;TU.a=null;TU.b=null;tRenderGrid()});
-  $('#trStat').addEventListener('change',e=>{TU.stat=e.target.value;TU.a=null;TU.b=null;tRenderGrid()});
+  $('#trChips').addEventListener('click',e=>{
+    const b=e.target.closest('[data-chip]');if(!b)return;
+    const k=b.dataset.chip;TU.stat='';TU.wait='';
+    if(k.indexOf('wait:')===0)TU.wait=k.slice(5);else if(k.indexOf('st:')===0)TU.stat=k.slice(3);
+    TU.a=null;TU.b=null;tRenderTools();tRenderGrid();
+  });
+  $('#trUndo').addEventListener('click',e=>{if(e.target.closest('[data-undo]'))tUndo()});
   $('#trPart').addEventListener('change',e=>{TU.part=e.target.value;TU.a=null;TU.b=null;tRenderGrid()});
-  $('#trFil').addEventListener('click',()=>{TU.showFil=!TU.showFil;$('#trFil').setAttribute('aria-pressed',TU.showFil);tRenderGrid()});
+  $('#trFil').addEventListener('click',()=>{TU.showFil=!TU.showFil;$('#trFil').setAttribute('aria-pressed',TU.showFil);tRenderGrid();const d=$('.tr-more');if(d)d.open=false});
+  document.addEventListener('click',e=>{const d=$('.tr-more');if(d&&d.open&&!d.contains(e.target))d.open=false});
   $('#trNew').addEventListener('click',()=>{
     const u=tMe(),list=tList();if(!tCan(u,'create'))return;
-    const row=tNewRow(list,u);tSave();
-    TU.q='';TU.stat='';TU.part='';TU.fil[list.id]={};$('#trQ').value='';$('#trStat').value='';$('#trPart').value='';
+    const row=tNewRow(list,u);tSave('Ny punkt '+row.no+' skapad');
+    TU.q='';TU.stat='';TU.wait='';TU.part='';TU.fil[list.id]={};$('#trQ').value='';$('#trPart').value='';
     TU.sort[list.id]=null;
     tRenderTools();tRenderSheets();tRenderGrid();
     const ri=TU.view.rows.indexOf(row),dc=list.cols.findIndex(c=>c.key==='desc'||c.key==='step');
@@ -2839,7 +2959,6 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
     tMsg(`Skapade ${row.no}. Skriv beskrivningen och tryck Enter.`);
   });
   $('#trSet').addEventListener('click',()=>tOpenModal('settings'));
-  $('#trData').addEventListener('click',()=>tOpenModal('data'));
   $('#trXl').addEventListener('click',()=>tOpenModal('excel'));
   $('#trSheets').addEventListener('click',e=>{
     const b=e.target.closest('[data-list]');if(!b)return;
@@ -2868,7 +2987,7 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
     else if(a==='addc'){
       const ta=$('#trCom'),txt=ta?ta.value.trim():'';
       if(!txt||!tCan(tMe(),'comment',row))return;
-      tLog(row,'comment',{text:txt});tSave();tRenderDetail();tRenderGrid();
+      tLog(row,'comment',{text:txt});tSave('Kommentar tillagd');tRenderDetail();tRenderGrid();
     }
   });
   det.addEventListener('change',e=>{
@@ -2876,7 +2995,7 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
     const f=e.target.closest('[data-f]');
     if(f){
       const col=list.cols.find(c=>c.key===f.dataset.f);
-      if(col&&tCanEdit(tMe(),row,col)){if(tSetVal(row,col,f.value))tSave();tRenderAll()}
+      if(col&&tCanEdit(tMe(),row,col)){if(tSetVal(row,col,f.value))tSave(row.no+': '+col.label+' ändrad');tRenderAll()}
       return;
     }
     if(e.target.id==='trFile'&&e.target.files&&e.target.files[0]){
@@ -2894,6 +3013,7 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
     else if(a==='reset1'){TU.confirmReset=true;modal.innerHTML=`<div class="tr-box">${tModalHTML()}</div>`}
     else if(a==='reset0'){TU.confirmReset=false;modal.innerHTML=`<div class="tr-box">${tModalHTML()}</div>`}
     else if(a==='reset2'){const me=T.me;T=tMake();T.me=me;tSave();TU.panel=false;TU.a=null;TU.b=null;tCloseModal();renderTrace();tMsg('Exempeldatan är återställd.')}
+    else if(a==='opendata'){tOpenModal('data')}
     else if(a==='xlexp'){
       const msg=$('#trXlMsg');
       try{const r=tExportXlsx($('#trXlHist').checked);msg.textContent='Skapade '+r.name+' ('+r.rows+' rader, '+r.sheets.length+' flikar). Hittar du den inte i Hämtade filer kan webbläsaren ha blockerat nedladdningen.'}
@@ -2928,22 +3048,102 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&TU.modal&&UI.view==='trace')tCloseModal()});
 })();
 
+
+/* ---------- Start, hjälp, inbjudan (v12) ---------- */
+const T_AREA_USER={pl:'u6',best:'u1',kons:'u3',entr:'u4',ue:'u5'};
+function syncPersona(toTrace){
+  if(toTrace){const u=T_AREA_USER[UI.as];if(u&&T.users.some(x=>x.id===u)&&T.me!==u){T.me=u;tSave()}return}
+  const a=Object.keys(T_AREA_USER).find(k=>T_AREA_USER[k]===T.me);
+  if(a&&P.areas.some(x=>x.id===a)&&UI.as!==a){UI.as=a;UI.aiOut=null;UI.adding=null;UI.selLink=null;ensureSel();renderChrome()}
+}
+function gOpen(html){const m=$('#gModal');$('#gBody').innerHTML=html;m.hidden=false;const f=m.querySelector('select,input,button:not([data-g="close"])');if(f)f.focus()}
+function gClose(){$('#gModal').hidden=true}
+function gHelp(){
+  const terms=[['Area','Ett företags eller en parts eget utrymme i projektet.'],['Underarea','Den del av en area som du väljer att dela med andra. Resten är privat.'],['Delning','Du bestämmer per underarea vem som får se den. AI:n svarar bara utifrån det du får se.'],['Röd tråd','Kedjan av aktiviteter som avgör när projektet blir klart.'],['Baslinje','Planen som den låstes. Det som borde ha hänt.'],['Prognos','När det blir klart om det fortsätter som nu.'],['Förskjutning','Hur många dagar prognosen ligger efter (+) eller före (−) baslinjen.'],['Buffert','Medvetet tomrum efter en aktivitet. En försening som ryms i bufferten flyttar inte nästa steg.'],['Stopp','Något hindrar arbetet och behöver lösas.'],['Förankring','Beslutet är diskuterat och accepterat av dem det berör innan det genomförs.'],['Åtgärdad, Godkänd, Stängd','Granskningspunkten är åtgärdad av ansvarig, godkänd av granskaren och till sist avslutad.'],['Restpunkt','Något som återstår att rätta efter test eller besiktning.'],['FAT / SAT','Test hos leverantören (FAT) respektive på plats (SAT).'],['Egenkontroll','Entreprenörens egen kontroll innan beställaren testar.']];
+  gOpen(`<div class="gtop"><div><h2>Hjälp och ordlista</h2><div class="td-hint" style="font-size:13px;color:var(--ink-2)">Kort om orden i Projektet.</div></div><button class="td-x" data-g="close" aria-label="Stäng">✕</button></div><h3>Ordlista</h3><dl>${terms.map(t=>`<dt>${esc(t[0])}</dt><dd>${esc(t[1])}</dd>`).join('')}</dl><div class="row"><button class="btn sm" data-g="intro">Visa introduktionen igen</button></div>`);
+}
+function gInvite(){
+  const opts=P.areas.map(a=>`<option value="${a.id}">${esc(a.name)} (${esc(a.company||'')})</option>`).join('');
+  gOpen(`<div class="gtop"><div><h2>Bjud in</h2><div class="td-hint" style="font-size:13px;color:var(--ink-2)">Skapa en länk som öppnar Projektet som en viss part. Ingen installation behövs.</div></div><button class="td-x" data-g="close" aria-label="Stäng">✕</button></div>
+    <h3>Vem bjuder du in?</h3><select id="invArea" aria-label="Vilken area">${opts}</select>
+    <h3>Länk</h3><input type="text" id="invLink" readonly aria-label="Inbjudningslänk">
+    <div class="row"><button class="btn sm primary" data-g="copylink">Kopiera länk</button><span class="td-hint" id="invMsg" style="font-size:12.5px;color:var(--ink-2)"></span></div>
+    <p class="td-hint" style="font-size:12.5px;color:var(--ink-2);margin-top:14px">Simulering: i den här prototypen finns projektet bara i din egen webbläsare. Länken öppnar därför appen som vald part med exempeldata. Med inloggning och server går kollegan in i samma projekt och ser bara det hen får se.</p>`);
+  const upd=()=>{$('#invLink').value=location.href.split('#')[0]+'#inbjudan='+encodeURIComponent($('#invArea').value)};
+  $('#invArea').addEventListener('change',upd);upd();
+}
+$('#gModal').addEventListener('click',e=>{
+  if(e.target.id==='gModal'){gClose();return}
+  const b=e.target.closest('[data-g]');if(!b)return;
+  const a=b.dataset.g;
+  if(a==='close')gClose();
+  else if(a==='intro'){try{localStorage.removeItem('projektet-intro')}catch(err){}gClose();setView('start')}
+  else if(a==='copylink'){
+    const el=$('#invLink'),msg=$('#invMsg');el.focus();el.select();
+    let p;try{p=navigator.clipboard.writeText(el.value)}catch(err){p=Promise.reject(err)}
+    Promise.resolve(p).then(()=>{msg.textContent='Kopierad.'}).catch(()=>{msg.textContent='Markera länken och kopiera själv.'});
+  }
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#gModal').hidden)gClose()});
+$('#btnHelp').addEventListener('click',gHelp);
+$('#btnInvite').addEventListener('click',gInvite);
+
+function introSeen(){try{return localStorage.getItem('projektet-intro')==='1'}catch(e){return false}}
+function renderStart(){
+  syncPersona(true);
+  const a=area(UI.as)||{name:''},u=tMe(),w=tWaitAll(u);
+  let h=`<h2>Hej! Du ser projektet som ${esc(a.name)}</h2><p class="muted">${esc(P.name)}. Här ser du vad som väntar på dig.</p>`;
+  if(UI.invited)h+=`<div class="st-hello">Du har bjudits in som <b>${esc(a.name)}</b>. Allt du ser här är det den parten har tillgång till.</div>`;
+  if(!introSeen())h+=`<div class="st-intro"><b>Kom igång på tre steg</b><ol>
+    <li>Välj vem du är i rutan <b>Visa som</b> högst upp.<button class="btn sm" data-go="who">Visa var</button></li>
+    <li>Se vad som väntar på dig.<button class="btn sm" data-go="trace-me">Öppna mina punkter</button></li>
+    <li>Bjud in en kollega med en länk.<button class="btn sm" data-go="invite">Bjud in</button></li></ol>
+    <button class="btn sm primary" data-go="intro-done">Klart, dölj den här rutan</button> <button class="linkbtn" data-go="help">Vad betyder orden?</button></div>`;
+  const items=(arr,max)=>arr.slice(0,max).map(x=>`<li><button data-go="row" data-list="${x.l.id}" data-row="${x.r.id}"><b>${esc(x.r.no)}</b><span>${esc(tRowText(x.l,x.r)||x.l.name)}</span></button></li>`).join('');
+  h+=`<div class="st-grid">`;
+  h+=`<div class="st-card"><h3>Väntar på dig · Spårbarhet</h3><div class="big">${w.me.length}<small>${w.me.length===1?'punkt':'punkter'} som ${esc(u.name.split(' ')[0])} kan göra något med</small></div>`+(w.me.length?`<ul>${items(w.me,5)}</ul><button class="btn sm primary" data-go="trace-me">Visa alla ${w.me.length}</button>`:`<div class="muted">Inget väntar på dig just nu.</div>`)+`</div>`;
+  h+=`<div class="st-card"><h3>Väntar på andra</h3><div class="big">${w.other.length}<small>${w.other.length===1?'punkt':'punkter'} där någon annan ska göra nästa steg</small></div>`+(w.other.length?`<ul>${items(w.other,3)}</ul><button class="btn sm" data-go="trace-other">Visa alla ${w.other.length}</button>`:`<div class="muted">Du väntar inte på någon.</div>`)+`</div>`;
+  if(isPL()){const pr=scheduleChecks(),hi=pr.filter(f=>f.sev==='hög').length;h+=`<div class="st-card"><h3>Tidplanen</h3><div class="big">${pr.length}<small>${pr.length===1?'problem':'problem'}${hi?`, varav ${hi} allvarligt`:''}</small></div><div class="muted">${pr.length?esc(pr[0].title):'Inga avvikelser hittades.'}</div><button class="btn sm" data-go="check">Se problemen</button></div>`}
+  let shared=0;try{shared=allDocs().filter(d=>d.area!==UI.as&&canSee(UI.as,d.area,d.chain)).length}catch(e){}
+  h+=`<div class="st-card"><h3>Delat med dig</h3><div class="big">${shared}<small>${shared===1?'handling':'handlingar'} från andra parter</small></div><div class="muted">Du ser bara det som andra har valt att dela med ${esc(a.name)}.</div><button class="btn sm" data-go="net">Öppna projektnätet</button></div>`;
+  h+=`</div>`;
+  $('#startBody').innerHTML=h;
+}
+$('#viewStart').addEventListener('click',e=>{
+  const b=e.target.closest('[data-go]');if(!b)return;
+  const g=b.dataset.go;
+  if(g==='who'){const s=$('#asSel');s.focus();s.scrollIntoView({block:'nearest'})}
+  else if(g==='trace-me'||g==='trace-other'){TU.wait=g==='trace-me'?'me':'other';TU.stat='';setView('trace')}
+  else if(g==='row'){TU.list=b.dataset.list;TU.wait='';TU.stat='';setView('trace');tOpen(b.dataset.row)}
+  else if(g==='invite')gInvite();
+  else if(g==='help')gHelp();
+  else if(g==='check')setView('check');
+  else if(g==='net')setView('net');
+  else if(g==='intro-done'){try{localStorage.setItem('projektet-intro','1')}catch(err){}renderStart()}
+});
+(function(){const m=/[#&]inbjudan=([^&]+)/.exec(location.hash||'');if(m){const id=decodeURIComponent(m[1]);if(P.areas.some(x=>x.id===id)){UI.as=id;UI.invited=true}}})();
+const VIEW_NAMES={start:'Start',net:'Projektnät',plan:'Tidplan',check:'Avstämning, problem i tidplanen',trace:'Spårbarhet'};
 function setView(v){
   if(v==='plan'&&!isPL())v='net';
+  const was=UI.view;
+  if(v==='trace')syncPersona(true);else if(was==='trace')syncPersona(false);
   UI.view=v;
+  $('#viewStart').hidden=v!=='start';$('#tabStart').setAttribute('aria-selected',v==='start');
+  $('#pageH1').textContent=VIEW_NAMES[v]||'Projektet';
   $('#viewNet').hidden=v!=='net';
   $('#viewPlan').hidden=v!=='plan';
   $('#viewCheck').hidden=v!=='check';
   $('#viewTrace').hidden=v!=='trace';
   $('#tabTrace').setAttribute('aria-selected',v==='trace');
   document.body.dataset.view=v;
-  $('#tabCheck').setAttribute('aria-selected',v==='check');
+  $('#tabCheck').setAttribute('aria-selected',v==='check'&&!isPL());
   $('#tabNet').setAttribute('aria-selected',v==='net');
-  $('#tabPlan').setAttribute('aria-selected',v==='plan');
+  $('#tabPlan').setAttribute('aria-selected',v==='plan'||(v==='check'&&isPL()));
   if(v==='plan'){
     renderPlan();renderEditor();
     const sc=$('#gScroll');if(sc)sc.scrollLeft=Math.max(0,todayOff()*UI.px-160);
   }else if(v==='check'){renderCheck()}
+  else if(v==='start'){renderStart()}
   else if(v==='trace'){renderTrace()}
   else{renderNet();renderInspector();if(VB.needFit)fitView()}
 }
@@ -2954,7 +3154,7 @@ $('#asSel').addEventListener('change',e=>{
   ensureSel();
   if(UI.tab==='log'&&UI.sel&&!sub(UI.sel)&&!canEditArea(UI.sel))UI.tab='folders';
   renderChrome();
-  if(UI.view==='plan'&&!isPL())setView('net');else if(UI.view==='check')renderCheck();else{renderNet();renderInspector()}
+  if(UI.view==='plan'&&!isPL())setView('net');else if(UI.view==='start')renderStart();else if(UI.view==='check'){if(isPL())renderCheck();else renderCheck()}else{renderNet();renderInspector()}
 });
 $('#btnCollapse').addEventListener('click',()=>{UI.expanded={};const sb=UI.sel?sub(UI.sel):null;if(sb)UI.sel=sb.parent;UI.shareDrag=null;UI.netMsg='';renderNet();renderInspector();fitView()});
 $('#zIn').addEventListener('click',()=>zoomAt(1.3));
@@ -2963,7 +3163,7 @@ $('#zFit').addEventListener('click',fitView);
 $('#btnTidy').addEventListener('click',tidyAreas);
 window.addEventListener('resize',()=>{if(UI.view==='net'&&!VB.user)fitView()});
 $('#btnExample').addEventListener('click',()=>{
-  P=makeExample();resetUI();save();renderChrome();setView('net');
+  P=makeExample();resetUI();save();$('#newSheet').hidden=true;renderChrome();setView('net');
 });
 const sheet=$('#newSheet');
 function branchHint(){const b=BR[$('#npBranch').value]||BR.bygg;$('#npHint').textContent='Areor: '+Object.values(b.types).join(', ')+'.'}
@@ -2987,7 +3187,7 @@ $('#newForm').addEventListener('submit',e=>{
 });
 
 renderChrome();
-setView('net');
+setView('start');
 })();
 </script>
 
