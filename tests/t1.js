@@ -4,12 +4,13 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++};
  const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
  const ctx=await b.newContext({viewport:{width:1440,height:900},colorScheme:'light'});
  const pg=await ctx.newPage();const errs=[];pg.on('pageerror',e=>errs.push(e.message));pg.on('console',m=>{if(m.type()==='error')errs.push('console: '+m.text())});
- await pg.goto('file://'+process.cwd()+'/new.html');await pg.waitForTimeout(600);
+ await pg.goto('file://'+process.cwd()+'/index.html');await pg.waitForTimeout(600);
  await pg.click('#tabTrace');await pg.waitForTimeout(300);
  const rows=()=>pg.locator('#trGrid tbody tr').count();
  const info=()=>pg.textContent('#trInfo');
  const msg=()=>pg.textContent('#trMsg');
- // Sara (proj) default
+ // Sara (proj)
+ await pg.selectOption('#trMe','u3');await pg.waitForTimeout(150);
  const n1=await rows();ok(n1>0&&n1<12,'Sara (Projektör) ser bara egen part: '+n1+' rader');
  await pg.selectOption('#trMe','u2');await pg.waitForTimeout(150);
  ok(await rows()===12,'Erik (Granskare) ser alla 12 rader');
@@ -83,10 +84,10 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++};
  ok(firstStatus!==lastFirst,'sortering växlar riktning: '+firstStatus+' / '+lastFirst);
  await pg.click('#trGrid th[data-sort="status"]');await pg.waitForTimeout(100);
  // column filter
- await pg.click('#trFil');await pg.fill('#trGrid input[data-fil="cat"]','Fel');await pg.waitForTimeout(150);
+ await pg.evaluate(()=>{document.querySelector('.tr-more').open=true});await pg.click('#trFil');await pg.fill('#trGrid input[data-fil="cat"]','Fel');await pg.waitForTimeout(150);
  const nf=await rows();ok(nf>0&&nf<12,'kolumnfilter Kategori=Fel ger '+nf+' rader');
  ok(await pg.evaluate(()=>document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.fil==='cat'),'fokus kvar i filterfältet');
- await pg.fill('#trGrid input[data-fil="cat"]','');await pg.click('#trFil');
+ await pg.fill('#trGrid input[data-fil="cat"]','');await pg.evaluate(()=>{document.querySelector('.tr-more').open=true});await pg.click('#trFil');
  // copy
  await cell(0,2).click();
  const copied=await pg.evaluate(()=>{const dt=new DataTransfer();const ev=new ClipboardEvent('copy',{clipboardData:dt,bubbles:true,cancelable:true});document.getElementById('trGrid').dispatchEvent(ev);return dt.getData('text/plain')});
@@ -134,18 +135,18 @@ let fails=0;const ok=(c,m)=>{console.log((c?'PASS ':'FAIL ')+m);if(!c)fails++};
  ok(await rows()===8,'Restpunkter har 8');
  await pg.selectOption('#trMe','u1');await pg.waitForTimeout(100);
  // JSON roundtrip
- await pg.click('#trData');
+ await pg.click('#trXl');await pg.click('[data-m="opendata"]');
  const json=await pg.inputValue('#trJsonOut');
  let parsed=null;try{parsed=JSON.parse(json)}catch(e){}
  ok(parsed&&parsed.lists.length===3&&parsed.events.length>50,'export ger giltig JSON med '+(parsed&&parsed.events.length)+' händelser');
  await pg.click('#trModal [data-m="close"]');
  // reset then import
  await pg.click('#trSet');await pg.click('#trModal [data-m="reset1"]');await pg.click('#trModal [data-m="reset2"]');await pg.waitForTimeout(150);
- await pg.selectOption('#trMe','u1');await pg.click('#trData');await pg.fill('#trJsonIn',json);await pg.click('#trModal [data-m="import"]');await pg.waitForTimeout(200);
+ await pg.selectOption('#trMe','u1');await pg.click('#trXl');await pg.click('[data-m="opendata"]');await pg.fill('#trJsonIn',json);await pg.click('#trModal [data-m="import"]');await pg.waitForTimeout(200);
  ok((await pg.locator('#trModal').isHidden()),'import stänger dialogen');
  await pg.click('#trSheets [data-list="grk"]');await pg.selectOption('#trMe','u2');await pg.waitForTimeout(100);
  ok((await rows())===14||(await rows())===13||(await rows())>12,'importerade ändringar (nya rader) finns kvar: '+await rows());
- await pg.selectOption('#trMe','u1');await pg.click('#trData');await pg.fill('#trJsonIn','{trasig');await pg.click('#trModal [data-m="import"]');
+ await pg.selectOption('#trMe','u1');await pg.click('#trXl');await pg.click('[data-m="opendata"]');await pg.fill('#trJsonIn','{trasig');await pg.click('#trModal [data-m="import"]');
  ok((await pg.textContent('#trImpMsg')).includes('inte ett giltigt'),'trasig JSON ger felmeddelande');
  await pg.click('#trModal [data-m="close"]');
  // reload keeps state
