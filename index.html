@@ -691,6 +691,7 @@ body[data-view="trace"] .projname,body[data-view="trace"] .as,body[data-view="tr
       <span class="tr-msg" id="trMsg" role="status"></span>
       <span class="tr-sp"></span>
       <button class="btn sm" id="trSet">Inställningar</button>
+      <button class="btn sm" id="trXl">Excel</button>
       <button class="btn sm" id="trData">Data</button>
     </div>
     <div class="tr-info" id="trInfo"></div>
@@ -2383,6 +2384,7 @@ function tRenderTools(){
   $('#trNew').disabled=!tCan(u,'create');
   $('#trSet').disabled=!tCan(u,'settings');
   $('#trData').disabled=!tCan(u,'io');
+  $('#trXl').disabled=!tCan(u,'io');
   $('#trFil').setAttribute('aria-pressed',TU.showFil);
 }
 function renderTrace(){
@@ -2606,6 +2608,13 @@ function tModalHTML(){
     h+=`<h3>Exempeldata</h3><div class="row">`+(TU.confirmReset?`<span class="td-hint">Alla ändringar ersätts med originalexemplet.</span><button class="btn sm danger" data-m="reset2">Ja, återställ</button><button class="btn sm" data-m="reset0">Avbryt</button>`:`<button class="btn sm" data-m="reset1">Återställ exempeldata</button>`)+`</div>`;
     return h;
   }
+  if(m==='excel'){
+    const n=T.lists.reduce((s,l)=>s+tVis(l,u).length,0);
+    return `<div class="top"><div><h2>Excel</h2><div class="td-hint">Hämta spårbarhetslistorna som en Excel-fil.</div></div><button class="td-x" data-m="close" aria-label="Stäng">✕</button></div>`+
+      `<h3>Exportera</h3><div class="td-hint">En flik per lista (${T.lists.map(l=>esc(l.name)).join(', ')}) med samma kolumner och rubriker som i tabellen. Du får de ${n} rader som ${esc(T_ROLES[u.role].toLowerCase())} ser. Statusar färgas som i appen.</div>`+
+      `<div style="margin-top:12px;text-align:left"><label style="display:inline-flex;gap:8px;align-items:center;cursor:pointer;margin:0;width:auto"><input type="checkbox" id="trXlHist" style="width:auto;margin:0"> Ta med en extra flik med historik (vem ändrade vad och när)</label></div>`+
+      `<div class="row"><button class="btn sm primary" data-m="xlexp">Ladda ner Excel-fil</button><span class="td-hint" id="trXlMsg" role="status"></span></div>`;
+  }
   if(m==='data'){
     const json=JSON.stringify(T,null,1);
     return `<div class="top"><div><h2>Data</h2><div class="td-hint">Hela projektet som JSON. Kopiera texten för att spara den, eller klistra in en sparad JSON för att läsa in den.</div></div><button class="td-x" data-m="close" aria-label="Stäng">✕</button></div>`+
@@ -2614,6 +2623,122 @@ function tModalHTML(){
   }
   return '';
 }
+/* ===== Excel-export (.xlsx) utan externa bibliotek ===== */
+const XL_CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function xlCrc(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=XL_CRC[(c^b[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+function xlZip(files){ /* files: [{name,data:string}] , lagras utan komprimering */
+  const enc=new TextEncoder(),parts=[],cen=[];let off=0;
+  const d=new Date(),dt=((d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1))&0xFFFF,dd=(((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate())&0xFFFF;
+  files.forEach(f=>{
+    const nm=enc.encode(f.name),data=enc.encode(f.data),crc=xlCrc(data);
+    const lh=new DataView(new ArrayBuffer(30));
+    lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(8,0,true);lh.setUint16(10,dt,true);lh.setUint16(12,dd,true);
+    lh.setUint32(14,crc,true);lh.setUint32(18,data.length,true);lh.setUint32(22,data.length,true);lh.setUint16(26,nm.length,true);lh.setUint16(28,0,true);
+    parts.push(new Uint8Array(lh.buffer),nm,data);
+    const ch=new DataView(new ArrayBuffer(46));
+    ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(10,0,true);ch.setUint16(12,dt,true);ch.setUint16(14,dd,true);
+    ch.setUint32(16,crc,true);ch.setUint32(20,data.length,true);ch.setUint32(24,data.length,true);ch.setUint16(28,nm.length,true);ch.setUint32(42,off,true);
+    cen.push(new Uint8Array(ch.buffer),nm);
+    off+=30+nm.length+data.length;
+  });
+  const cl=cen.reduce((s,x)=>s+x.length,0),end=new DataView(new ArrayBuffer(22));
+  end.setUint32(0,0x06054b50,true);end.setUint16(8,files.length,true);end.setUint16(10,files.length,true);end.setUint32(12,cl,true);end.setUint32(16,off,true);
+  const all=parts.concat(cen,[new Uint8Array(end.buffer)]),out=new Uint8Array(off+cl+22);let p=0;
+  all.forEach(x=>{out.set(x,p);p+=x.length});
+  return out;
+}
+const xlEsc=s=>String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function xlRef(c,r){let s='',n=c+1;while(n>0){const m=(n-1)%26;s=String.fromCharCode(65+m)+s;n=Math.floor((n-1)/26)}return s+(r+1)}
+function xlName(n,used){
+  let s=String(n).replace(/[:\\\/?*\[\]]/g,' ').replace(/\s+/g,' ').trim().slice(0,31)||'Blad';
+  let base=s,i=2;while(used.indexOf(s.toLowerCase())>-1){const suf=' ('+i+')';s=base.slice(0,31-suf.length)+suf;i++}
+  used.push(s.toLowerCase());return s;
+}
+function xlSerial(iso){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);if(!m)return null;return Math.round((Date.UTC(+m[1],+m[2]-1,+m[3])-Date.UTC(1899,11,30))/86400000)}
+/* Bygger arbetsboken. Returnerar {bytes, sheets:[namn], rows:antal} */
+function tBuildXlsx(opts){
+  opts=opts||{};const u=tMe();
+  /* stilar: 0 normal, 1 rubrik, 2 datum, 3 tidsstämpel, 4.. status (en per statusfärg) */
+  const fills=['<fill><patternFill patternType="none"/></fill>','<fill><patternFill patternType="gray125"/></fill>','<fill><patternFill patternType="solid"><fgColor rgb="FF1D1D1F"/><bgColor indexed="64"/></patternFill></fill>'];
+  const stXf={};let xfs=['<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf>',
+    '<xf numFmtId="0" fontId="2" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf>',
+    '<xf numFmtId="164" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1" applyAlignment="1"><alignment vertical="top" horizontal="left"/></xf>',
+    '<xf numFmtId="165" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1" applyAlignment="1"><alignment vertical="top" horizontal="left"/></xf>'];
+  T.profile.statuses.forEach(s=>{
+    const hex=String(s.color||'#888888').replace('#','').toUpperCase().padStart(6,'0').slice(0,6);
+    const r=parseInt(hex.slice(0,2),16),g=parseInt(hex.slice(2,4),16),b=parseInt(hex.slice(4,6),16),lum=(0.299*r+0.587*g+0.114*b)/255;
+    fills.push('<fill><patternFill patternType="solid"><fgColor rgb="FF'+hex+'"/><bgColor indexed="64"/></patternFill></fill>');
+    xfs.push('<xf numFmtId="0" fontId="'+(lum>0.62?1:2)+'" fillId="'+(fills.length-1)+'" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="top" horizontal="center"/></xf>');
+    stXf[s.id]=xfs.length-1;
+  });
+  const styles='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'+
+    '<numFmts count="2"><numFmt numFmtId="164" formatCode="yyyy\\-mm\\-dd"/><numFmt numFmtId="165" formatCode="yyyy\\-mm\\-dd\\ hh:mm"/></numFmts>'+
+    '<fonts count="3"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font></fonts>'+
+    '<fills count="'+fills.length+'">'+fills.join('')+'</fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders>'+
+    '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="'+xfs.length+'">'+xfs.join('')+'</cellXfs>'+
+    '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';
+  const sheetXml=(widths,table)=>{
+    const nc=widths.length,nr=table.length;
+    let x='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/>';
+    x+='<cols>'+widths.map((w,i)=>'<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+Math.max(6,Math.min(80,Math.round(w/7)))+'" customWidth="1"/>').join('')+'</cols><sheetData>';
+    table.forEach((row,ri)=>{
+      x+='<row r="'+(ri+1)+'"'+(ri===0?' ht="22" customHeight="1"':'')+'>';
+      row.forEach((c,ci)=>{
+        if(c==null||c.v===''||c.v==null)return;
+        const ref=xlRef(ci,ri);
+        if(c.n!=null)x+='<c r="'+ref+'" s="'+c.s+'"><v>'+c.n+'</v></c>';
+        else x+='<c r="'+ref+'" s="'+c.s+'" t="inlineStr"><is><t xml:space="preserve">'+xlEsc(c.v)+'</t></is></c>';
+      });
+      x+='</row>';
+    });
+    x+='</sheetData>'+(nr>0&&nc>0?'<autoFilter ref="A1:'+xlRef(nc-1,Math.max(0,nr-1))+'"/>':'')+'<pageMargins left="0.7" right="0.7" top="0.75" bottom="0.75" header="0.3" footer="0.3"/></worksheet>';
+    return x;
+  };
+  const used=[],sheets=[];let total=0;
+  T.lists.forEach(l=>{
+    const rows=tVis(l,u).slice().sort((a,b)=>a.no.localeCompare(b.no,'sv',{numeric:true}));
+    const table=[l.cols.map(c=>({v:c.label,s:1}))];
+    rows.forEach(r=>table.push(l.cols.map(c=>{
+      if(c.type==='status')return{v:tText(r,c),s:stXf[r.status]||0};
+      if(c.type==='date'){const t=tText(r,c),n=xlSerial(t);return n!=null?{v:t,n:n,s:2}:{v:t,s:0}}
+      return{v:tText(r,c),s:0};
+    })));
+    total+=rows.length;
+    sheets.push({name:xlName(l.name,used),xml:sheetXml(l.cols.map(c=>c.w||120),table)});
+  });
+  if(opts.history){
+    const kinds={create:'Skapad',field:'Ändrad',status:'Status',comment:'Kommentar',attach:'Bilaga'};
+    const table=[['Lista','Nr','Tid','Användare','Händelse','Fält','Från','Till','Text'].map(h=>({v:h,s:1}))];
+    T.lists.forEach(l=>tVis(l,u).forEach(r=>T.events.filter(e=>e.rowId===r.id).forEach(e=>{
+      const t=new Date(e.ts),n=isNaN(t)?null:(t.getTime()-Date.UTC(1899,11,30))/86400000;
+      const us=T.users.find(x=>x.id===e.user);
+      table.push([{v:l.name,s:0},{v:r.no,s:0},n!=null?{v:e.ts,n:n,s:3}:{v:e.ts,s:0},{v:us?us.name:'',s:0},{v:kinds[e.kind]||e.kind,s:0},{v:e.field||'',s:0},{v:e.from==null?'':e.from,s:0},{v:e.to==null?'':e.to,s:0},{v:e.text||'',s:0}]);
+    })));
+    sheets.push({name:xlName('Historik',used),xml:sheetXml([110,80,130,130,90,120,160,160,260],table)});
+  }
+  const files=[
+    {name:'[Content_Types].xml',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>'+sheets.map((s,i)=>'<Override PartName="/xl/worksheets/sheet'+(i+1)+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>').join('')+'</Types>'},
+    {name:'_rels/.rels',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'},
+    {name:'xl/workbook.xml',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>'+sheets.map((s,i)=>'<sheet name="'+xlEsc(s.name)+'" sheetId="'+(i+1)+'" r:id="rId'+(i+1)+'"/>').join('')+'</sheets></workbook>'},
+    {name:'xl/_rels/workbook.xml.rels',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+sheets.map((s,i)=>'<Relationship Id="rId'+(i+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+(i+1)+'.xml"/>').join('')+'<Relationship Id="rId'+(sheets.length+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'},
+    {name:'xl/styles.xml',data:styles}
+  ].concat(sheets.map((s,i)=>({name:'xl/worksheets/sheet'+(i+1)+'.xml',data:s.xml})));
+  return{bytes:xlZip(files),sheets:sheets.map(s=>s.name),rows:total};
+}
+function tXlFileName(){
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  const base=String(T.project||'Projekt').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9]+/g,'_').replace(/^_|_$/g,'');
+  return 'Sparbarhet_'+base+'_'+d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'.xlsx';
+}
+function tExportXlsx(history){
+  const r=tBuildXlsx({history:history}),name=tXlFileName();
+  const blob=new Blob([r.bytes],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},1500);
+  return{name:name,sheets:r.sheets,rows:r.rows};
+}
+
 function tOpenModal(m){TU.modal=m;TU.confirmReset=false;const el=$('#trModal');el.innerHTML=`<div class="tr-box">${tModalHTML()}</div>`;el.hidden=false}
 function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
 
@@ -2715,6 +2840,7 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
   });
   $('#trSet').addEventListener('click',()=>tOpenModal('settings'));
   $('#trData').addEventListener('click',()=>tOpenModal('data'));
+  $('#trXl').addEventListener('click',()=>tOpenModal('excel'));
   $('#trSheets').addEventListener('click',e=>{
     const b=e.target.closest('[data-list]');if(!b)return;
     TU.list=b.dataset.list;TU.a=null;TU.b=null;TU.panel=false;TU.pend=null;
@@ -2768,6 +2894,11 @@ function tCloseModal(){TU.modal=null;$('#trModal').hidden=true}
     else if(a==='reset1'){TU.confirmReset=true;modal.innerHTML=`<div class="tr-box">${tModalHTML()}</div>`}
     else if(a==='reset0'){TU.confirmReset=false;modal.innerHTML=`<div class="tr-box">${tModalHTML()}</div>`}
     else if(a==='reset2'){const me=T.me;T=tMake();T.me=me;tSave();TU.panel=false;TU.a=null;TU.b=null;tCloseModal();renderTrace();tMsg('Exempeldatan är återställd.')}
+    else if(a==='xlexp'){
+      const msg=$('#trXlMsg');
+      try{const r=tExportXlsx($('#trXlHist').checked);msg.textContent='Skapade '+r.name+' ('+r.rows+' rader, '+r.sheets.length+' flikar). Hittar du den inte i Hämtade filer kan webbläsaren ha blockerat nedladdningen.'}
+      catch(err){msg.textContent='Det gick inte att skapa filen: '+err.message}
+    }
     else if(a==='copy'){
       const ta=$('#trJsonOut'),msg=$('#trCopyMsg');
       ta.focus();ta.select();
